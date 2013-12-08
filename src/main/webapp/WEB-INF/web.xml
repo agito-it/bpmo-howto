@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>bpmo-howto-process-choices</display-name>
+	<servlet>
+		<servlet-name>BPMO VAADIN UI</servlet-name>
+		<servlet-class>de.agito.cps.ui.vaadin.bpmo.BPMOServlet</servlet-class>
+		<init-param>
+			<param-name>application</param-name>
+			<param-value>de.agito.cps.ui.vaadin.bpmo.BPMOApplication</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BPMO VAADIN UI</servlet-name>
+		<url-pattern>/DEFAULT/*</url-pattern>
+		<url-pattern>/VAADIN/*</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>AUTH</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>roleAnyone</role-name>
+			<role-name>roleAdmin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>auth</realm-name>
+	</login-config>
+	<security-role>
+		<role-name>roleAnyone</role-name>
+	</security-role>
+	<security-role>
+		<role-name>roleAdmin</role-name>
+	</security-role>
+</web-app>

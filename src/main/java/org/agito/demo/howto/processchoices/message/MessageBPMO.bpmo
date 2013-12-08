@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BPMODefinition Version="1.0.0" BPMOId="MessageBPMO" MaxOccur="1" MinOccur="1" NodeId="MessageBPMO" xmlns="http://de.agito/cps/core">
+    <BPMOLabel>
+        <Text>Message BPMO</Text>
+    </BPMOLabel>
+    <Languages DefaultLanguage="en"/>
+    <Lifecycles>
+        <Lifecycle Id="New" ProcessDefinitionId="BPMOHowtoProcessChoices_MessageProcess"/>
+    </Lifecycles>
+    <ProcessActivities>
+        <ProcessActivityId Id="*"/>
+        <ProcessActivityId Id="$DRAFT">
+            <Label>
+                <Text>Draft</Text>
+            </Label>
+        </ProcessActivityId>
+        <ProcessActivityId Id="Requester"/>
+        <ProcessActivityId Id="Approver"/>
+    </ProcessActivities>
+    <ProcessChoices>
+    	<ProcessChoice Id="Approved" Type="FORWARD" />
+    	<ProcessChoice Id="Declined" Type="MESSAGE" />
+		<Assignment ProcessActivityId="Approver">
+			<ProcessChoiceId>Approved</ProcessChoiceId>
+			<ProcessChoiceId>Declined</ProcessChoiceId>
+		</Assignment>
+    </ProcessChoices>
+    <ClassArtifacts UITechnology="Vaadin" Package="org.agito.demo.howto.processchoices.message"/>
+</BPMODefinition>
