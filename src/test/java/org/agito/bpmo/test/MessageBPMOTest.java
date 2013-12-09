@@ -1,7 +1,6 @@
 package org.agito.bpmo.test;
 
 import org.agito.demo.howto.processchoices.message.MessageBPMO;
-import org.agito.demo.howto.processchoices.message.MessageBPMOAccess;
 import org.agito.demo.howto.processchoices.message.MessageBPMOLifecycle;
 import org.agito.demo.howto.processchoices.message.MessageBPMOProcessActivity;
 import org.junit.Assert;
@@ -25,7 +24,6 @@ public class MessageBPMOTest {
 
 		// create bpmo
 		IBPMO bpmo = bpmoRule.getRuntimeService().createBPMO(MessageBPMO.$BPMO, MessageBPMOLifecycle.New, "001");
-		MessageBPMOAccess messageBPMOAccess = new MessageBPMOAccess(bpmo.getBPMOData());
 
 		// start process & complete requester task
 		bpmo.startProcess();

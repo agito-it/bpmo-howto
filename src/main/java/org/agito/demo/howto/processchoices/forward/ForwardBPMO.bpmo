@@ -18,8 +18,8 @@
 		<ProcessActivityId Id="Approver" />
 	</ProcessActivities>
 	<ProcessChoices>
-		<ProcessChoice Id="Approve" Type="FORWARD"></ProcessChoice>
-		<ProcessChoice Id="Decline" Type="FORWARD" RequiresComment="true"></ProcessChoice>
+		<ProcessChoice Id="Approve" Type="FORWARD" />
+		<ProcessChoice Id="Decline" Type="FORWARD" RequiresComment="true" />
 		<Assignment ProcessActivityId="Approver">
 			<ProcessChoiceId>Approve</ProcessChoiceId>
 			<ProcessChoiceId>Decline</ProcessChoiceId>

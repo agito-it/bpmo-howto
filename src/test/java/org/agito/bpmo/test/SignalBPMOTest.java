@@ -1,7 +1,6 @@
 package org.agito.bpmo.test;
 
 import org.agito.demo.howto.processchoices.signal.SignalBPMO;
-import org.agito.demo.howto.processchoices.signal.SignalBPMOAccess;
 import org.agito.demo.howto.processchoices.signal.SignalBPMOLifecycle;
 import org.agito.demo.howto.processchoices.signal.SignalBPMOProcessActivity;
 import org.junit.Assert;
@@ -25,7 +24,6 @@ public class SignalBPMOTest {
 
 		// create bpmo
 		IBPMO bpmo = bpmoRule.getRuntimeService().createBPMO(SignalBPMO.$BPMO, SignalBPMOLifecycle.New, "001");
-		SignalBPMOAccess signalBPMOAccess = new SignalBPMOAccess(bpmo.getBPMOData());
 
 		// start process & complete requester task
 		bpmo.startProcess();

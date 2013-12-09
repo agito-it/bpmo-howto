@@ -55,7 +55,7 @@
         <omgdi:waypoint x="279.0" y="57.0"></omgdi:waypoint>
         <omgdi:waypoint x="205.0" y="57.0"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="14.0" width="100.0" x="9.0" y="45.0"></omgdc:Bounds>
+          <omgdc:Bounds height="14.0" width="40.0" x="9.0" y="45.0"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

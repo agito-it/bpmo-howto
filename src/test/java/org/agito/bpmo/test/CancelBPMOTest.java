@@ -1,7 +1,6 @@
 package org.agito.bpmo.test;
 
 import org.agito.demo.howto.processchoices.cancel.CancelBPMO;
-import org.agito.demo.howto.processchoices.cancel.CancelBPMOAccess;
 import org.agito.demo.howto.processchoices.cancel.CancelBPMOLifecycle;
 import org.agito.demo.howto.processchoices.cancel.CancelBPMOProcessActivity;
 import org.junit.Assert;
