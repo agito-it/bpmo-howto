@@ -11,7 +11,7 @@ import de.agito.cps.core.bpmo.api.enums.ILifecycle;
  */
 public enum CancelBPMOLifecycle implements ILifecycle {
 
-	New(false, "BPMOHowtoProcessChoices_CancelProcess");
+	New(false, "BPMOHowto_CancelProcess");
 
 	private CancelBPMOLifecycle(boolean supportsOriginalValue, String processDefinitionId) { this.supportsOriginalValue = supportsOriginalValue; this.processDefinitionId = processDefinitionId; }
 	private boolean supportsOriginalValue;

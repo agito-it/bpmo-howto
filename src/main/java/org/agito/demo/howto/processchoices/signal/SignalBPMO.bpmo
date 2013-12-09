@@ -5,7 +5,7 @@
     </BPMOLabel>
     <Languages DefaultLanguage="en"/>
     <Lifecycles>
-        <Lifecycle Id="New" ProcessDefinitionId="BPMOHowtoProcessChoices_SignalProcess"/>
+        <Lifecycle Id="New" ProcessDefinitionId="BPMOHowto_SignalProcess"/>
     </Lifecycles>
     <ProcessActivities>
         <ProcessActivityId Id="*"/>

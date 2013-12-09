@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <message id="Declined" name="Declined"></message>
-  <process id="BPMOHowtoProcessChoices_MessageProcess" name="Message Process" isExecutable="true">
+  <process id="BPMOHowto_MessageProcess" name="Message Process" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="Requester" name="Requester" activiti:candidateGroups="roleAnyone,Everyone"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="Requester"></sequenceFlow>
@@ -14,8 +14,8 @@
     </boundaryEvent>
     <sequenceFlow id="flow4" sourceRef="boundarymessage1" targetRef="Requester"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_BPMOHowtoProcessChoices_MessageProcess">
-    <bpmndi:BPMNPlane bpmnElement="BPMOHowtoProcessChoices_MessageProcess" id="BPMNPlane_BPMOHowtoProcessChoices_MessageProcess">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_BPMOHowto_MessageProcess">
+    <bpmndi:BPMNPlane bpmnElement="BPMOHowto_MessageProcess" id="BPMNPlane_BPMOHowto_MessageProcess">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="60.0" y="170.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

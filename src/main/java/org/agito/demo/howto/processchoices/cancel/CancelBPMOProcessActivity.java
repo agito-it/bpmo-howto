@@ -12,7 +12,8 @@ import de.agito.cps.core.bpmo.api.enums.IProcessActivity;
 public enum CancelBPMOProcessActivity implements IProcessActivity {
 
 	$DRAFT,
-	Requester;
+	Requester,
+	Approver;
 
 }
 

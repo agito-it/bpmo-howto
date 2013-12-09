@@ -5,7 +5,7 @@
 	</BPMOLabel>
 	<Languages DefaultLanguage="en" />
 	<Lifecycles>
-		<Lifecycle Id="New" ProcessDefinitionId="BPMOHowtoProcessChoices_ForwardProcess"/>
+		<Lifecycle Id="New" ProcessDefinitionId="BPMOHowto_ForwardProcess"/>
 	</Lifecycles>
 	<ProcessActivities>
 		<ProcessActivityId Id="*" />
@@ -15,11 +15,14 @@
 			</Label>
 		</ProcessActivityId>
 		<ProcessActivityId Id="Requester" />
+		<ProcessActivityId Id="Approver" />
 	</ProcessActivities>
 	<ProcessChoices>
-		<ProcessChoice Id="Complete" Type="FORWARD" />
-		<Assignment ProcessActivityId="Requester">
-			<ProcessChoiceId>Complete</ProcessChoiceId>
+		<ProcessChoice Id="Approve" Type="FORWARD"></ProcessChoice>
+		<ProcessChoice Id="Decline" Type="FORWARD" RequiresComment="true"></ProcessChoice>
+		<Assignment ProcessActivityId="Approver">
+			<ProcessChoiceId>Approve</ProcessChoiceId>
+			<ProcessChoiceId>Decline</ProcessChoiceId>
 		</Assignment>
 	</ProcessChoices>
 	<ClassArtifacts UITechnology="Vaadin" Package="org.agito.demo.howto.processchoices.forward" />

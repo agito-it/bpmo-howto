@@ -11,7 +11,7 @@ import de.agito.cps.core.bpmo.api.enums.ILifecycle;
  */
 public enum ForwardBPMOLifecycle implements ILifecycle {
 
-	New(false, "BPMOHowtoProcessChoices_ForwardProcess");
+	New(false, "BPMOHowto_ForwardProcess");
 
 	private ForwardBPMOLifecycle(boolean supportsOriginalValue, String processDefinitionId) { this.supportsOriginalValue = supportsOriginalValue; this.processDefinitionId = processDefinitionId; }
 	private boolean supportsOriginalValue;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ApplicationConfiguration ApplicationContextRoot="/bpmo-howto-process-choices" ApplicationId="BPMOHowtoProcessChoices" xmlns="http://de.agito/cps/appconf">
+<ApplicationConfiguration ApplicationContextRoot="/bpmo-howto" ApplicationId="BPMOHowto" xmlns="http://de.agito/cps/appconf">
     <ApplicationLabel DefaultLanguage="en">
-        <Label Language="en">BPMOHowtoProcessChoices</Label>
+        <Label Language="en">BPMOHowto</Label>
     </ApplicationLabel>
 </ApplicationConfiguration>

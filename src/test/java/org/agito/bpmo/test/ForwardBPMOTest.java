@@ -3,7 +3,6 @@ package org.agito.bpmo.test;
 import junit.framework.Assert;
 
 import org.agito.demo.howto.processchoices.forward.ForwardBPMO;
-import org.agito.demo.howto.processchoices.forward.ForwardBPMOAccess;
 import org.agito.demo.howto.processchoices.forward.ForwardBPMOLifecycle;
 import org.agito.demo.howto.processchoices.forward.ForwardBPMOProcessActivity;
 import org.junit.Rule;
@@ -25,14 +24,21 @@ public class ForwardBPMOTest {
 	public void testForwardBPMONew() {
 
 		// create bpmo
-		IBPMO bpmo = bpmoRule.getRuntimeService().createBPMO(ForwardBPMO.$BPMO,
-				ForwardBPMOLifecycle.New, "001");
-		ForwardBPMOAccess forwardBPMOAccess = new ForwardBPMOAccess(bpmo.getBPMOData());
-		bpmo.startProcess();
-		bpmo.claimTaskInstance(ForwardBPMOProcessActivity.Requester);
+		IBPMO bpmo = bpmoRule.getRuntimeService().createBPMO(ForwardBPMO.$BPMO, ForwardBPMOLifecycle.New, "001");
 
-		// complete task using a choice.
-		bpmo.completeTaskInstance("Complete", null);
+		bpmo.startProcess();
+
+		// complete approver task using choice 'Decline'.
+		bpmo.claimTaskInstance(ForwardBPMOProcessActivity.Approver);
+		bpmo.completeTaskInstance("Decline", "Rework");
+
+		// complete requester task
+		bpmo.claimTaskInstance(ForwardBPMOProcessActivity.Requester);
+		bpmo.completeTaskInstance();
+
+		// complete approver task using choice 'Approve'.
+		bpmo.claimTaskInstance(ForwardBPMOProcessActivity.Approver);
+		bpmo.completeTaskInstance("Approve", null);
 
 		// assertion
 		ProcessHistory historyItem = bpmoRule.getRuntimeService()

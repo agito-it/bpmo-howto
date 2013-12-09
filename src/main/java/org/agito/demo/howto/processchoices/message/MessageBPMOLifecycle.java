@@ -11,7 +11,7 @@ import de.agito.cps.core.bpmo.api.enums.ILifecycle;
  */
 public enum MessageBPMOLifecycle implements ILifecycle {
 
-	New(false, "BPMOHowtoProcessChoices_MessageProcess");
+	New(false, "BPMOHowto_MessageProcess");
 
 	private MessageBPMOLifecycle(boolean supportsOriginalValue, String processDefinitionId) { this.supportsOriginalValue = supportsOriginalValue; this.processDefinitionId = processDefinitionId; }
 	private boolean supportsOriginalValue;

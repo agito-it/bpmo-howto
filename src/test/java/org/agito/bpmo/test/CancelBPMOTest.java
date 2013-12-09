@@ -25,23 +25,23 @@ public class CancelBPMOTest {
 
 		// create bpmo
 		IBPMO bpmo = bpmoRule.getRuntimeService().createBPMO(CancelBPMO.$BPMO, CancelBPMOLifecycle.New, "001");
-		CancelBPMOAccess cancelBPMOAccess = new CancelBPMOAccess(bpmo.getBPMOData());
 
 		bpmo.startProcess();
-		bpmo.claimTaskInstance(CancelBPMOProcessActivity.Requester);
-		
+		bpmo.claimTaskInstance(CancelBPMOProcessActivity.Approver);
+		bpmo.completeTaskInstance("Decline", "Rework");
+
 		// complete task with choice "Cancel"
+		bpmo.claimTaskInstance(CancelBPMOProcessActivity.Requester);
 		bpmo.completeTaskInstance("Cancel", "Comment for Cancel Choice Test");
-		
+
 		ProcessHistory historyItem = bpmoRule.getRuntimeService()
 				.createProcessHistoryQuery()
 				.bpmoUuid(bpmo.getBPMOHeader().getBPMOUuid())
 				.eventType(ProcessAgentEventType.PROCESS_CANCEL).singleResult();
 		Assert.assertNotNull(historyItem);
-		Assert.assertEquals("Comment for Cancel Choice Test", historyItem.getCommentText());
+		Assert.assertEquals("Comment for Cancel Choice Test",
+				historyItem.getCommentText());
 
 	}
 
 }
-
-
