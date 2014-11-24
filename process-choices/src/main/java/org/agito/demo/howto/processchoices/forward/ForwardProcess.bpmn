@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_JXAeMHSoEeSrs8m5Cd10QQ" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="ForwardProcess" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent_1">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="Approver" camunda:candidateGroups="roleAnyone" name="Approver">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1" targetRef="Approver"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" default="declined">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>declined</bpmn2:outgoing>
+      <bpmn2:outgoing>approved</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="Approver" targetRef="ExclusiveGateway_1"/>
+    <bpmn2:sequenceFlow id="declined" name="declined" sourceRef="ExclusiveGateway_1" targetRef="Requester"/>
+    <bpmn2:userTask id="Requester" camunda:candidateGroups="roleAnyone" name="Requester">
+      <bpmn2:incoming>declined</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="Requester" targetRef="Approver"/>
+    <bpmn2:sequenceFlow id="approved" name="approved" sourceRef="ExclusiveGateway_1" targetRef="EndEvent_1">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression">${'Approve'.equals($cpsChoiceIdApprover)}</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>approved</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ForwardProcess">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_4" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="121.0" y="201.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_3" bpmnElement="Approver">
+        <dc:Bounds height="80.0" width="100.0" x="207.0" y="179.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_4" targetElement="_BPMNShape_UserTask_3">
+        <di:waypoint xsi:type="dc:Point" x="157.0" y="219.0"/>
+        <di:waypoint xsi:type="dc:Point" x="207.0" y="219.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_3" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="357.0" y="194.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_UserTask_3" targetElement="_BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="307.0" y="219.0"/>
+        <di:waypoint xsi:type="dc:Point" x="357.0" y="219.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_4" bpmnElement="Requester">
+        <dc:Bounds height="80.0" width="100.0" x="207.0" y="48.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="declined" sourceElement="_BPMNShape_ExclusiveGateway_3" targetElement="_BPMNShape_UserTask_4">
+        <di:waypoint xsi:type="dc:Point" x="382.0" y="194.0"/>
+        <di:waypoint xsi:type="dc:Point" x="382.0" y="88.0"/>
+        <di:waypoint xsi:type="dc:Point" x="307.0" y="88.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="25.0" width="67.0" x="396.0" y="171.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_UserTask_4" targetElement="_BPMNShape_UserTask_3">
+        <di:waypoint xsi:type="dc:Point" x="257.0" y="128.0"/>
+        <di:waypoint xsi:type="dc:Point" x="257.0" y="179.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_6" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="504.0" y="201.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="522.0" y="242.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="approved" sourceElement="_BPMNShape_ExclusiveGateway_3" targetElement="_BPMNShape_EndEvent_6">
+        <di:waypoint xsi:type="dc:Point" x="407.0" y="219.0"/>
+        <di:waypoint xsi:type="dc:Point" x="504.0" y="219.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="25.0" width="73.0" x="420.0" y="219.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

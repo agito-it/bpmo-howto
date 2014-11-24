@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BPMODefinition BPMOId="HelloWorldBPMO" Version="1.0.0" NodeId="HelloWorldBPMO" xmlns="http://de.agito/cps/core">
+    <Languages DefaultLanguage="en"/>
+    <Lifecycles>
+        <Lifecycle Id="New" ProcessDefinitionId="HelloWorldProcess"/>
+    </Lifecycles>
+    <ProcessActivities>
+        <ProcessActivityId Id="*"/>
+        <ProcessActivityId Id="$DRAFT"/>
+        <ProcessActivityId Id="Requester"/> 
+    </ProcessActivities>
+    <ClassArtifacts Package="com.sample.bpmo" UITechnology="Vaadin"/>
+    <Actions>
+        <Action>MyAction</Action>
+    </Actions>
+</BPMODefinition>

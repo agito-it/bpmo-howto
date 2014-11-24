@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BPMODefinition Version="1.0.0" BPMOId="SignalBPMO" MaxOccur="1" MinOccur="1" NodeId="SignalBPMO" xmlns="http://de.agito/cps/core">
+    <Languages DefaultLanguage="en"/>
+    <Lifecycles>
+        <Lifecycle Id="New" ProcessDefinitionId="SignalProcess"/>
+    </Lifecycles>
+    <ProcessActivities>
+        <ProcessActivityId Id="*"/>
+        <ProcessActivityId Id="$DRAFT">
+            <Label>
+                <Text>Draft</Text>
+            </Label>
+        </ProcessActivityId>
+        <ProcessActivityId Id="Requester"/>
+        <ProcessActivityId Id="Approver"/>
+    </ProcessActivities>
+    <ProcessChoices>
+    	<ProcessChoice Id="Approved" Type="FORWARD" />
+    	<ProcessChoice Id="Declined" Type="SIGNAL" />
+		<Assignment ProcessActivityId="Approver">
+			<ProcessChoiceId>Approved</ProcessChoiceId>
+			<ProcessChoiceId>Declined</ProcessChoiceId>
+		</Assignment>
+    </ProcessChoices>
+    <ClassArtifacts UITechnology="Vaadin" Package="org.agito.demo.howto.processchoices.signal"/>
+</BPMODefinition>
