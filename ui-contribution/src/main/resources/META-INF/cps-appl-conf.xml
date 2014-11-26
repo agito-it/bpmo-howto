@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ApplicationConfiguration xmlns="http://de.agito/cps/appconf">
+  <ApplicationProperties>
+
+    <!-- ui contribution - flat with implicit label derived from the ContributionID -->
+    <ui.center.navigateTo.MyContribution>/</ui.center.navigateTo.MyContribution>
+
+    <!-- ui contribution - flat with default label -->
+    <!-- <ui.center.navigateTo.MyContribution>/:My Contribution</ui.center.navigateTo.MyContribution> -->
+
+    <!-- ui contribution - flat with default label + german, french labels -->
+    <!-- <ui.center.navigateTo.MyContribution>/:My Contribution:de|Meine Contribution:fr|Mon Contribution</ui.center.navigateTo.MyContribution> -->
+
+    <!-- <authorization.permission.32768>MyContribution</authorization.permission.32768> -->
+
+  </ApplicationProperties>
+</ApplicationConfiguration>
