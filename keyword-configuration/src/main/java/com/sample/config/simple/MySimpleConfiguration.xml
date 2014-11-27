@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KeywordCoreDefinition Id="com.sample.MySimpleConfiguration" Client="*" Category="Configuration" xmlns="http://de.agito/cps/keyword">
+  <Extensions>
+    <Extension Key="fooAttribute">foo</Extension>
+    <Extension Key="barAttribute">true</Extension>
+  </Extensions>
+</KeywordCoreDefinition>

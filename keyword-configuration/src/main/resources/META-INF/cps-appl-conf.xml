@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationConfiguration xmlns="http://de.agito/cps/appconf">
+  <ApplicationProperties>
+
+    <keyword.import>
+      com/sample/config/simple/MySimpleConfiguration.xml,
+      com/sample/config/basic/MyBasicConfiguration.xml,
+      com/sample/config/extended/MyExtendedConfiguration.xml
+    </keyword.import>
+
+  </ApplicationProperties>
+</ApplicationConfiguration>

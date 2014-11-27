@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KeywordCoreDefinition Id="com.sample.MyExtendedConfiguration" Client="*" Category="Configuration" xmlns="http://de.agito/cps/keyword" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Languages>
+    <Language>en</Language>
+  </Languages>
+
+  <Data>
+    <Entry Key="typeA">
+      <Values>
+        <Value Language="en">Type A</Value>
+      </Values>
+      <Extensions>
+        <Extension Key="exampleAttributeString">foo</Extension>
+        <Extension Key="exampleAttributeInteger">123</Extension>
+        <Extension Key="exampleAttributeBoolean">true</Extension>
+        <Extension Key="exampleAttributeStringList">foo,bar,123</Extension>
+        <Extension Key="exampleAttributeStringArray">foo,bar,123</Extension>
+        <Extension Key="exampleAttributeStringMap">fooKey:fooValue,barKey:barValue</Extension>
+        <Extension Key="exampleAttributeStringMapArray">fooKey:fooValue1|fooValue2,barKey:barValue1|barValue2</Extension>
+      </Extensions>
+    </Entry>
+    <Entry Key="typeB">
+      <Values>
+        <Value Language="en">Type B</Value>
+      </Values>
+      <Extensions>
+        <Extension Key="exampleAttributeString">bar</Extension>
+        <Extension Key="exampleAttributeInteger">987</Extension>
+        <Extension Key="exampleAttributeBoolean">false</Extension>
+        <Extension Key="exampleAttributeStringList">bar,987</Extension>
+        <Extension Key="exampleAttributeStringArray">bar,987</Extension>
+        <Extension Key="exampleAttributeStringMap">barKey:barValue</Extension>
+        <Extension Key="exampleAttributeStringMapArray">barKey:barValue1|barValue2|barValue3</Extension>
+      </Extensions>
+    </Entry>
+  </Data>
+
+</KeywordCoreDefinition>
