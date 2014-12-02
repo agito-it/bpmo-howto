@@ -9,7 +9,7 @@ import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
 
-import de.agito.cps.ui.vaadin.center.IPageWrapper;
+import de.agito.cps.ui.vaadin.common.IPageWrapper;
 import de.agito.cps.ui.vaadin.common.UserMenuItem;
 import de.agito.cps.ui.vaadin.common.component.ICommonMenuBar;
 import de.agito.cps.ui.vaadin.common.component.ICommonMenuBar.IItemManager;
