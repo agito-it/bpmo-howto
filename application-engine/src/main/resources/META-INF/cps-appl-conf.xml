@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ApplicationConfiguration xmlns="http://de.agito/cps/appconf">
+  <ApplicationProperties>
+
+    <!-- engine -->
+    <engine.configuration>com.sample.engine.impl.MyEngineConfiguration</engine.configuration>
+    <engine.databaseSchemaUpdate>true</engine.databaseSchemaUpdate>
+    <engine.myBatisConfigurationResource>com/sample/engine/impl/db/mappings.xml</engine.myBatisConfigurationResource>
+    <engine.schemaResourcesCreate>com/sample/engine/impl/db/schema.{db}.create.sql</engine.schemaResourcesCreate>
+    <engine.schemaResourcesDrop>com/sample/engine/impl/db/schema.{db}.drop.sql</engine.schemaResourcesDrop>
+    <engine.schemaTableNames>MY_FOO</engine.schemaTableNames>
+    <engine.schemaVersions>1.0</engine.schemaVersions>
+
+  </ApplicationProperties>
+</ApplicationConfiguration>
