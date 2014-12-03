@@ -81,5 +81,7 @@
     <module>hello-world</module>
     <module>process-choices</module>
     <module>ui-contribution</module>
+    <module>keyword-configuration</module>
+    <module>application-engine</module>
   </modules>
 </project>
